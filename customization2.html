@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Add to Cart Page</h1>
+
+    <!-- Product 1 -->
+    <div class="product">
+      <h2>Bouquet</h2>
+      <img src="bg3.jpg" width="350"height="350">
+      <img src="bg2.jpg"width="350"height="350">
+      <p>Price: $500.00</p>
+      <input type="number" id="quantity1" class="quantity" placeholder="Quantity">
+      <button class="btn btn-primary" onclick="addToCart(1)">Add to Cart</button>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product">
+      <h2>Gifts</h2>
+      <img src="c12.jpg"width="350"height="350">
+      <img src="c16.webp"width="350"height="350">
+      <p>Price: $1000.00</p>
+      <input type="number" id="quantity2" class="quantity" placeholder="Quantity">
+      <button class="btn btn-primary" onclick="addToCart(2)">Add to Cart</button>
+    </div>
+
+  <!--  <div class="product">
+        <h2>Indoor plants</h2>
+        <img src="p1.webp"width="350"height="350">
+        <img src="p4.jpeg"width="350"height="350">
+        <p>Price: $100.00</p>
+        <input type="number" id="quantity2" class="quantity" placeholder="Quantity">
+        <button class="btn btn-primary" onclick="addToCart(2)">Add to Cart</button>
+      </div>
+    -->
+    <!-- Cart section -->
+    <div class="cart">
+      <h2>Cart</h2>
+      <table id="cart-items" class="table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody id="cart-content">
+          <!-- Cart items will be displayed here -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <br><br><br><center>
+  <h3><a href="form1.html" type="Submit" class="btn btn-primary">Enter the details</a><br><br>
+  <a href="final-1.html"class="btn btn-primary">Place order</a>
+  <br><br>
+  <a href ="home1.html"class="btn btn-primary">Back to home</a></h3></center>
+</body>
+</html><style>
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .product {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .quantity {
+    width: 80px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+  
+  .cart {
+    margin-top: 50px;
+  }
+  
+  .table {
+    width: 100%;
+  }
+  
+  .table th, .table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .table th {
+    text-align: left;
+  }
+  
+  .table td {
+    text-align: center;
+  }
+  
+  .table th:last-child, .table td:last-child {
+    text-align: right;
+  }
+  </style>
+  <script>
+    function addToCart(productId) {
+    const productName = 'Roses ' + productId;
+    const quantity = document.getElementById('quantity' + productId).value;
+    const price = productId === 1 ? 500.00 : 1000.00;
+    const total = quantity * price;
+  
+    const cartContent = document.getElementById('cart-content');
+    const newRow = cartContent.insertRow(-1);
+    const cell1 = newRow.insertCell(0);
+    const cell2 = newRow.insertCell(1);
+    const cell3 = newRow.insertCell(2);
+    const cell4 = newRow.insertCell(3);
+    cell1.innerHTML = productName;
+    cell2.innerHTML = quantity;
+    cell3.innerHTML = '$' + price.toFixed(2);
+    cell4.innerHTML = '$' + total.toFixed(2);
+  }
+  </script>
+  
+  
